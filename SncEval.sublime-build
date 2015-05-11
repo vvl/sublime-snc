@@ -1,0 +1,4 @@
+{
+	"target": "snc_eval",
+	"cmd":  "$file"
+}
