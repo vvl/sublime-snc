@@ -1,4 +1,4 @@
-#Sublime Text 2 Plugin to run javascript in ServiceNow with one button#
+#Run Javascript in your ServiceNow instance directly from Sublime Text#
 At the moment only the public demo instances are supported.
 
 ##Installation##
