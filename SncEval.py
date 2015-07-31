@@ -2,6 +2,7 @@ import sublime
 import sublime_plugin
 import urllib
 import urllib2
+import base64
 import threading
 
 # based on http://code.tutsplus.com/tutorials/how-to-create-a-sublime-text-2-plugin--net-22685
@@ -20,10 +21,16 @@ class SncEvalHttpCall(threading.Thread):
             opener = urllib2.build_opener(proxy)
             urllib2.install_opener(opener)
 
+            username = 'jasmine-snc'
+            password = 'jasmine-snc'
             uri = 'https://%s.service-now.com/eval.do' % self.instance
-            params = urllib.urlencode({'script': self.script})
-            full_url = uri + '?' + params
-            http_file = urllib2.urlopen(full_url, timeout=self.timeout)
+            params = urllib.urlencode({ 'script': self.script })
+
+            request = urllib2.Request(uri, params)
+            base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
+            request.add_header("Authorization", "Basic %s" % base64string)
+
+            http_file = urllib2.urlopen(request, timeout=self.timeout)
             self.result = http_file.read().decode('utf-8')
             return
 
@@ -43,7 +50,7 @@ class SncEvalCommand(sublime_plugin.WindowCommand):
 
         view = self.window.active_view()
         script = view.substr(sublime.Region(0, view.size()))
-        thread = SncEvalHttpCall('demo019', script, 5)
+        thread = SncEvalHttpCall('demo008', script, 5)
         thread.start()
 
         self.await_thread(thread)
