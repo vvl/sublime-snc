@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2015-07-31 07:40:08">
+<sys_processor action="INSERT_OR_UPDATE">
+<active>true</active>
+<class_name/>
+<description>Evaluates the script from the script URL parameter and returnes the output.
+@param script The javascript to evaluate</description>
+<interactive>false</interactive>
+<name>JSncEval</name>
+<parameters/>
+<params_endpoint/>
+<path>eval</path>
+<path_endpoint/>
+<roles/>
+<script><![CDATA[var script =
+	"var _log_buf = '';" + "\n" +
+	"_gs_log = function(message, source) {" + "\n" +
+		"_log_buf += '[' + source + '] ' + message + \"\\n\";" + "\n" +
+		"gs.log(message, source);" + "\n" +
+	"};" + "\n" +
+	g_request.getParameter('script') + "\n" +
+	"gs.log(_log_buf, 'JSncEval-Output');";
+gs.log("Executed script:\n" + script, 'JSncEval-History');
+GlideEvaluator.evaluateString(script);
+gs.sleep(1);
+var loggr = new GlideRecord('syslog');
+loggr.addQuery('source', 'JSncEval-Output');
+loggr.orderByDesc('sys_created_on');
+loggr.setLimit(1);
+loggr.query();
+loggr.next();
+g_processor.writeOutput("text/plain", loggr.message);]]></script>
+<sys_class_name>sys_processor</sys_class_name>
+<sys_created_by>jasmine-snc</sys_created_by>
+<sys_created_on>2015-07-31 06:25:26</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>520a7f4a9525460008364bfca137ead9</sys_id>
+<sys_mod_count>3</sys_mod_count>
+<sys_name>JSncEval</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_processor_520a7f4a9525460008364bfca137ead9</sys_update_name>
+<sys_updated_by>jasmine-snc</sys_updated_by>
+<sys_updated_on>2015-07-31 07:12:21</sys_updated_on>
+<type>script</type>
+</sys_processor>
+</unload>

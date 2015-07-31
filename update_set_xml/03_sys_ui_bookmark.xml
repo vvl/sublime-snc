@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2015-07-31 07:41:27">
+<sys_ui_bookmark action="INSERT_OR_UPDATE">
+<auto_add>false</auto_add>
+<flyout>false</flyout>
+<flyout_sizing>auto</flyout_sizing>
+<flyout_width/>
+<icon>icon-form color-red</icon>
+<image>images/icons/log.gif</image>
+<open_in_form>true</open_in_form>
+<order>110</order>
+<pinned>true</pinned>
+<sys_created_by>jasmine-snc</sys_created_by>
+<sys_created_on>2015-07-31 06:56:41</sys_created_on>
+<sys_id>2d9144da9525460008364bfca137ea12</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>jasmine-snc</sys_updated_by>
+<sys_updated_on>2015-07-31 06:56:41</sys_updated_on>
+<title>JSncEval</title>
+<uncancelable>false</uncancelable>
+<url>sys_processor.do?sys_id=520a7f4a9525460008364bfca137ead9&amp;sysparm_record_target=sys_processor&amp;sysparm_record_row=1&amp;sysparm_record_rows=1&amp;sysparm_record_list=nameCONTAINSeval%5EORDERBYname</url>
+<user display_value="Jasmine SNC">7e197f4a9525460008364bfca137ea1f</user>
+</sys_ui_bookmark>
+<sys_ui_bookmark action="INSERT_OR_UPDATE">
+<auto_add>false</auto_add>
+<flyout>false</flyout>
+<flyout_sizing>auto</flyout_sizing>
+<flyout_width/>
+<icon>icon-book color-blue-dark</icon>
+<image>images/icons/knowledge.gif</image>
+<open_in_form>false</open_in_form>
+<order>130</order>
+<pinned>true</pinned>
+<sys_created_by>jasmine-snc</sys_created_by>
+<sys_created_on>2015-07-31 07:12:40</sys_created_on>
+<sys_id>3735401e9525460008364bfca137ea26</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_updated_by>jasmine-snc</sys_updated_by>
+<sys_updated_on>2015-07-31 07:14:53</sys_updated_on>
+<title>JSncEval-History</title>
+<uncancelable>true</uncancelable>
+<url>syslog_list.do?sysparm_query=source%3DJSncEval-History%5Esys_created_onONToday%40javascript%3Ags.daysAgoStart(0)%40javascript%3Ags.daysAgoEnd(0)</url>
+<user display_value="Jasmine SNC">7e197f4a9525460008364bfca137ea1f</user>
+</sys_ui_bookmark>
+<sys_ui_bookmark action="INSERT_OR_UPDATE">
+<auto_add>false</auto_add>
+<flyout>false</flyout>
+<flyout_sizing>auto</flyout_sizing>
+<flyout_width/>
+<icon>icon-book color-blue-dark</icon>
+<image>images/icons/knowledge.gif</image>
+<open_in_form>false</open_in_form>
+<order>140</order>
+<pinned>true</pinned>
+<sys_created_by>jasmine-snc</sys_created_by>
+<sys_created_on>2015-07-31 07:12:52</sys_created_on>
+<sys_id>2a45001e9525460008364bfca137eab4</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_updated_by>jasmine-snc</sys_updated_by>
+<sys_updated_on>2015-07-31 07:14:53</sys_updated_on>
+<title>JSncEval-Output</title>
+<uncancelable>true</uncancelable>
+<url>syslog_list.do?sysparm_query=sys_created_onONToday%40javascript%3Ags.daysAgoStart(0)%40javascript%3Ags.daysAgoEnd(0)%5Esource%3DJSncEval-Output</url>
+<user display_value="Jasmine SNC">7e197f4a9525460008364bfca137ea1f</user>
+</sys_ui_bookmark>
+</unload>

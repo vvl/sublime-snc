@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2015-07-31 06:20:58">
+<sys_user action="INSERT_OR_UPDATE">
+<active>true</active>
+<building display_value=""/>
+<calendar_integration>1</calendar_integration>
+<city/>
+<company display_value=""/>
+<cost_center display_value=""/>
+<country/>
+<date_format/>
+<default_perspective display_value=""/>
+<department display_value=""/>
+<edu_status>faculty</edu_status>
+<email>jasmine-snc@example.com</email>
+<employee_number/>
+<failed_attempts/>
+<first_name>Jasmine</first_name>
+<gender/>
+<home_phone/>
+<internal_integration_user>false</internal_integration_user>
+<introduction/>
+<last_login/>
+<last_login_device/>
+<last_login_time/>
+<last_name>SNC</last_name>
+<last_password/>
+<ldap_server display_value=""/>
+<location display_value=""/>
+<locked_out>false</locked_out>
+<manager display_value=""/>
+<middle_name/>
+<mobile_phone/>
+<name>Jasmine SNC</name>
+<notification>2</notification>
+<password_needs_reset>false</password_needs_reset>
+<phone/>
+<photo/>
+<preferred_language/>
+<roles/>
+<schedule display_value=""/>
+<source/>
+<state/>
+<street/>
+<sys_class_name>sys_user</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2015-07-31 06:19:59</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_domain_path>/</sys_domain_path>
+<sys_id>7e197f4a9525460008364bfca137ea1f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2015-07-31 06:19:59</sys_updated_on>
+<time_format/>
+<time_zone/>
+<title/>
+<user_name>jasmine-snc</user_name>
+<user_password>$s$VgMnDICt4KFTMj1xIrvpUvrYQxWbVUR4yzzClv+/VAA=$96DJat/1NvigBpcEPqgU0hwaTQ9qcaalzUXXgdwIKnM=</user_password>
+<vip>false</vip>
+<web_service_access_only>false</web_service_access_only>
+<zip/>
+</sys_user>
+</unload>
