@@ -13,13 +13,13 @@
 <path_endpoint/>
 <roles/>
 <script><![CDATA[var script =
-	"var _log_buf = '';" + "\n" +
-	"_gs_log = function(message, source) {" + "\n" +
-		"_log_buf += '[' + source + '] ' + message + \"\\n\";" + "\n" +
-		"gs.log(message, source);" + "\n" +
+	"var __output_buffer = '';" + "\n" +
+	"function jsnc_eval_print(message, source) {" + "\n" +
+		"__output_buffer += message;" + "\n" +
+		"gs.log(new Date().getTime() + ' ' + message, source);" + "\n" +
 	"};" + "\n" +
 	g_request.getParameter('script') + "\n" +
-	"gs.log(_log_buf, 'JSncEval-Output');";
+	"gs.log(__output_buffer, 'JSncEval-Output');";
 gs.log("Executed script:\n" + script, 'JSncEval-History');
 GlideEvaluator.evaluateString(script);
 gs.sleep(1);
