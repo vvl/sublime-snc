@@ -39,7 +39,7 @@ class SncEvalHttpCall(threading.Thread):
         except (urllib2.URLError) as (e):
             err = '%s: URL error %s contacting API' % (__name__, str(e.reason))
 
-        sublime.error_message(err)
+        self.error_message = err
         self.result = False
 
 
@@ -50,17 +50,12 @@ class SncEvalCommand(sublime_plugin.WindowCommand):
 
         view = self.window.active_view()
         script = view.substr(sublime.Region(0, view.size()))
-        thread = SncEvalHttpCall('demo008', script, 5)
+        thread = SncEvalHttpCall('demo022', script, 5)
         thread.start()
-
-        self.await_thread(thread)
-
-
-    def await_thread(self, thread):
-        if thread.is_alive():
-            sublime.set_timeout(lambda: self.await_thread(thread), 100)
-            return        
+        thread.join()
+        
         if thread.result == False:
+            sublime.error_message(thread.error_message)
             return
 
         self.append_text(thread.result)
