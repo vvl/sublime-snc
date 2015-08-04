@@ -68,6 +68,7 @@ def main():
         print response['output']
     else:
         print "%s:\n%s" % (response['status'], response['error'])
+        print "Output:\n%s" % (response['output'])
 
 
 if __name__ == "__main__":
