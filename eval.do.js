@@ -1,3 +1,6 @@
+var timestamp = gs.nowNoTZ();
+var response = { status: 'ERROR', output: '', error: '' };
+
 var script =
 	"var __output_buffer = '';" + "\n" +
 	"function jsnc_eval_print(message, source) {" + "\n" +
@@ -7,15 +10,33 @@ var script =
 	g_request.getParameter('script') + "\n" +
 	"gs.log(__output_buffer, 'JSncEval-Output');";
 gs.log("Executed script:\n" + script, 'JSncEval-History');
-GlideEvaluator.evaluateString(script);
+var eval_result = GlideEvaluator.evaluateString(script);
 gs.sleep(1);
+	
+if (typeof eval_result === 'undefined') {
+	response.status = 'OK'
+}
+
 var loggr = new GlideRecord('syslog');
 loggr.addQuery('source', 'JSncEval-Output');
+loggr.addQuery('sys_created_on', '>=', timestamp);
 loggr.orderByDesc('sys_created_on');
 loggr.setLimit(1);
 loggr.query();
-loggr.next();
-g_processor.writeOutput("text/plain", loggr.message);
+if (loggr.next()) {
+	response.output = loggr.message.toString();
+}
+
+loggr = new GlideRecord('syslog');
+loggr.addQuery('source', 'Evaluator');
+loggr.addQuery('sys_created_on', '>=', timestamp);
+loggr.orderByDesc('sys_created_on');
+loggr.query();
+while (loggr.next()) {
+	response.error += loggr.message.toString() + "\n";
+}
+
+g_processor.writeOutput("text/json", new JSON().encode(response));
 
 /*
 (function() {
