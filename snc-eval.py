@@ -5,6 +5,7 @@ import urllib
 import urllib2
 import base64
 import threading
+import json
 
 # based on http://code.tutsplus.com/tutorials/how-to-create-a-sublime-text-2-plugin--net-22685
 # http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/build_systems/configuration.html#build-arbitrary-options
@@ -60,8 +61,13 @@ def main():
     
     if thread.result == False:
         print "error:\n%s" % thread.error_message
+        return
+    
+    response = json.loads(thread.result)
+    if response['status'] == 'OK':
+        print response['output']
     else:
-        print "completed:\n%s" % thread.result
+        print "%s:\n%s" % (response['status'], response['error'])
 
 
 if __name__ == "__main__":
