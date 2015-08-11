@@ -55,7 +55,7 @@ def main():
     
     script = open(sys.argv[1], 'r').read()
     
-    thread = SncEvalHttpCall('demo022', script, 5)
+    thread = SncEvalHttpCall('demo022', script, 60)
     thread.start()
     thread.join()
     
